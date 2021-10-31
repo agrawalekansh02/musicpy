@@ -78,30 +78,32 @@ def setup():
     client_secret = config.client_secrete
     run_command(Fore.BLACK, f"export SPOTIPY_CLIENT_ID='{client_id}' && export SPOTIPY_CLIENT_SECRET='{client_secret}' && export SPOTIPY_REDIRECT_URI='https://example.com'")
 
+def help():
+    print('options and arguments:')
+    print(f'{Fore.GREEN}-s: single track downlaoad')
+    print('-a: entire album downlaoad')
+    print('-m: multitrack download')
+    print(f'-h: help menu{Fore.RESET}')
+
 
 def main():
     sp = spotipy.Spotify(client_credentials_manager = SpotifyClientCredentials())
     print("{}Welcome to MusicPy!{}".format(Fore.RED, Fore.RESET))
     try:
-        title = sys.argv[1]
-        print(title)
+        tag = sys.argv[1]
+        if tag == '-h':
+            help()
+        elif tag == '-s':
+            singledownload(sys.argv[2])
+        elif tag == '-a':
+            downloadalbum(sys.argv[2])
+        elif tag == '-m':
+            multidownload(sys.argv[2])
+        else:
+            multidownload(sys.arg[2])
     except IndexError:
         print('not enough inputs, please try again')
 
-    # try:
-    #     title = sys.argv[1]
-        
-    #     if title == "album":
-    #         downloadalbum(sp)
-    #     else:
-    #         singledownload(title)
-    # except IndexError:
-    #     print('single download')
-    #     multidownload()
-
-
-
-    
 
 if __name__ == '__main__':
     main()
