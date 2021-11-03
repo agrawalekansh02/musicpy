@@ -8,27 +8,17 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `agrawalekansh02`, `musicpy`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+This is a simply comand line utility to download tracks and albums to your local computer. 
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* python
+* youtube-dl
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -37,30 +27,32 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Download the following script and make sure the latest version of `yotube-dl` and `ffmpeg` are downloaded and installed to the machine.
 
 ### Prerequisites
 
-The necedssary
+Use brew to install the following packages
 ```sh
-npm install npm@latest -g
+brew install youtube-dl
+brew install ffmpeg
 ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [https://developer.spotify.com](https://developer.spotify.com)
 2. Clone the repo
    ```sh
    git clone https://github.com/agrawalekansh02/musicpy.git
    ```
-3. Install NPM packages
+3. Install pip packages
    ```sh
-   npm install
+   pip3 install -r requirements.txt
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Add the following environment variables to your path
+   ```sh
+   export SPOTIPY_CLIENT_ID='client_id'
+   export SPOTIPY_CLIENT_SECRET='client_secret'
+   export SPOTIPY_REDIRECT_URI='https://example.com'
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -70,23 +62,22 @@ npm install npm@latest -g
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+To simply run the script and download a single track, run the following command.
+```sh
+python3 music.py -s "Rock and Roll Led Zep"
+```
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+You can use the following tags to modify your download query
+```sh
+>>> python3 music.py -h
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
-
-See the [open issues](https://github.com/agrawalekansh02/musicpy/issues) for a full list of proposed features (and known issues).
+Welcome to MusicPy!
+options and arguments:
+-s: single track downlaoad
+-a: entire album downlaoad
+-m: multitrack download
+-h: help menu
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -122,20 +113,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
 Project Link: [https://github.com/agrawalekansh02/musicpy](https://github.com/agrawalekansh02/musicpy)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
