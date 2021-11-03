@@ -8,21 +8,6 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/agrawalekansh02/musicpy">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">project_title</h3>
-
-</div>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 

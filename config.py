@@ -1,2 +1,2 @@
 client_id = ''
-client_secrete = ''
+client_secret = ''

@@ -47,7 +47,7 @@ def multidownload():
 def download(search):
     query_string = urllib.parse.urlencode({"search_query" : search})
     html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
-    search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
+    search_results = re.findall(r"watch\?v=(\S{11})", html_content.read().decode())
     search_result = "http://www.youtube.com/watch?v=" + search_results[0]
     print('{}{} song found{}'.format(Fore.GREEN, search, Fore.RESET))
     run_command(Fore.CYAN, "youtube-dl --extract-audio --ignore-errors -x --audio-format mp3 " + search_result)
@@ -56,7 +56,7 @@ def download(search):
 def albumdownload(trackname, search):
     query_string = urllib.parse.urlencode({"search_query" : search})
     html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
-    search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
+    search_results = re.findall(r"watch\?v=(\S{11})", html_content.read().decode())
     search_result = "http://www.youtube.com/watch?v=" + search_results[0]
     print('{}{} song found{}'.format(Fore.GREEN, search, Fore.RESET))
     run_command(Fore.CYAN, "youtube-dl --extract-audio --ignore-errors -x --audio-format mp3 -o '{}'{}".format(trackname, search_result))
@@ -70,12 +70,12 @@ def run_command(color, command):
             break
         if output:
             print(color + str(output.strip()) + Fore.RESET)
-    rc = process.poll()
+    process.poll()
 
 
 def setup():
     client_id = config.client_id
-    client_secret = config.client_secrete
+    client_secret = config.client_secret
     run_command(Fore.BLACK, f"export SPOTIPY_CLIENT_ID='{client_id}' && export SPOTIPY_CLIENT_SECRET='{client_secret}' && export SPOTIPY_REDIRECT_URI='https://example.com'")
 
 def help():
@@ -101,8 +101,8 @@ def main():
             multidownload(sys.argv[2])
         else:
             multidownload(sys.arg[2])
-    except IndexError:
-        print('not enough inputs, please try again')
+    except Exception as e:
+        print(e)
 
 
 if __name__ == '__main__':
