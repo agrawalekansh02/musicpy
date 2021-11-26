@@ -95,7 +95,7 @@ def main():
         elif tag == '-m':
             multidownload(sys.argv[2])
         else:
-            multidownload(sys.arg[2])
+            multidownload(sys.argv[2])
     except Exception as e:
         print(e)
 
